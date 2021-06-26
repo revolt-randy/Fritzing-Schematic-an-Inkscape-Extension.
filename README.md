@@ -14,14 +14,13 @@ The ‘Schematic Symbol’ tab allows the user to enter the size of the symbol (
 
 The ‘Schematic Connectors’ tab has 3 groups of settings relating to the schematic symbol’s connectors.
 
-  Schematic diagram connectors: This is where the number of connectors for each	side of the symbol is set.
+Schematic diagram connectors: This is where the number of connectors for each	side of the symbol is set.
 
-  Connector Pin Number/Label options: This controls how the schematic pin numbers and labels are created.
+Connector Pin Number/Label options: This controls how the schematic pin numbers and labels are created.
 
-    Pin Numbering: has two options – Sequential or User Defined. 
-		- Sequential pin numbering starts at the top-most left side connector, and increases pin 	            		numbering of each pin in a counterclockwise direction.
-		- User Defined pin numbering is for manually entering pin numbers. This
-		option will open additional UI windows for manually assigning pin numbers.
+Pin Numbering: has two options – Sequential or User Defined. 
+	- Sequential pin numbering starts at the top-most left side connector, and increases pin numbering of each pin in a counterclockwise direction.
+	- User Defined pin numbering is for manually entering pin numbers. This	option will open additional UI windows for manually assigning pin numbers.
 
 		Pin Labels: has two options – Generic or User Defined.
 		- Generic pin labels creates a pin label of ‘pin’ + the pin number. (pin1, pin2, pin3, etc)
