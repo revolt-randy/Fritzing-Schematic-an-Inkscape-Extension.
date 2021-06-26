@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	
+	<!-- _name must have same name as .py file but capitalise it. Shows on Menu this way-->
+	<_name>Fritzing-Schematic</_name>
+
+	<!-- id should be unique. Associates entered values with this menu -->
+	<id>githubacct.uniqueid-001.Name_test</id>
+
+	<!-- mention a dependency here and will check for existence (optional)-->
+	<dependency type="executable" location="extensions">fritzing-schematic.py</dependency>
+
+	<!-- start notebook -->
+	<param name='active-tab' type="notebook">
+
+		<!-- one per page(tab) - unique names. Can discover which page in program-->
+		<page name="symbol" _gui-text="Schematic Symbol">
+			<label appearance = "header" >Schematic symbol size:</label>
+			<param name="x_size" type="float"   min="0.2"    max="6.5"    _gui-text="Width (0.2 to 6.5 in.)">0.3</param>
+			<param name="y_size" type="float"   min="0.2"    max="6.5"    _gui-text="Height (0.2 to 6.5 in.)">0.3</param>
+			<separator />
+			<hbox>
+				<label appearance="header" >Schematic label:</label>
+				<param name="sch_label" type="string" _gui-text=" ">label</param>
+			</hbox>
+			<separator />
+		</page>
+
+		
+		<page name="connectors" _gui-text="Schematic Connectors">
+			<label appearance = "header" >Schematic diagram connectors:</label>
+			<separator />
+			<param name="left_connectors" type="int"   min="0"    max="64"    _gui-text="Number of connectors - left">0</param>
+			<param name="bottom_connectors" type="int"   min="0"    max="64"    _gui-text="Number of connectors - bottom">0</param>
+			<param name="right_connectors" type="int"   min="0"    max="64"    _gui-text="Number of connectors - right">0</param>
+			<param name="top_connectors" type="int"   min="0"    max="64"    _gui-text="Number of connectors - top">0</param>
+			<separator />
+			<label appearance = "header" >Connector Pin Number/Label options:</label>
+			<separator />
+			<param name="pin_num" type="optiongroup" _gui-text="Pin Numbering:">
+				<option value="0">Sequential</option>
+				<option value="1">User Defined</option>
+			</param>
+			<separator />
+			<param name="pin_label" type="optiongroup" _gui-text="Pin Labels:">
+				<option value="0">Generic</option>
+				<option value="1">User Defined</option>
+			</param>
+			<separator />
+			<label appearance = "header" >Connector terminalIDs:</label>
+			<separator />
+			<hbox>
+				<label>Create teminalIDs:     </label>
+				<param name="terminal_id" type="boolean" gui-text="">false</param>
+			</hbox>
+			<separator />
+			
+			
+			<!--
+			<param name="bottom_connectors" type="int"   min="0"    max="100"    _gui-text="Number of connectors - bottom">0</param>
+			<param name="right_connectors" type="int"   min="0"    max="100"    _gui-text="Number of connectors - right">0</param>
+			-->
+
+		</page>
+		
+
+		<page name="usage" _gui-text="Help">
+			<label>Generates a schematic symbol for fritzing.</label>
+			<spacer />
+			<separator />
+			<label appearance = "header">Schematic Symbol tab:</label>
+			<label xml:space="preserve">Defines the size of the rectangular box for the schematic symbol and the Label to be used.</label>
+			<spacer />
+			<separator />
+			<label appearance = "header">Schematic Connectors tab:</label>
+			<label xml:space="preserve">Defines the number of connectors for each side of the symbol.
+			
+Order of pins starts at the top of the left side and progresses in a counter-clockwise direction.
+
+The connectors are assigned 'connectorXpin' names, where
+X = (schematic pin number - 1).</label>
+			<label appearance = "header">options:</label>
+			<label xml:space="preserve">- Pin numbers can be sequentially created (1,2,3..) or user defined.
+- Pin labels can be generic (pin1,pin2,pin3...) or user defined. 
+- Connector terminalIDs - Creates a terminalID for each connector.
+
+			</label>
+		</page>
+	</param>
+
+
+	
+	<!-- classify which menu it appears under - can be new name -->
+	<effect needs-live-preview="false">
+	<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Fritzing"/> <!-- which menu under Extensions -->
+		</effects-menu>
+	</effect>
+
+	<!-- py file again -->
+	<script>
+		<command reldir="extensions" interpreter="python">fritzing-schematic.py</command>
+	</script>
+
+</inkscape-extension>
+
+
+
+<!-- fritzing-schematic.inx  v0.4 -->
+<!-- an Inkscape extension for generating schematic symbols for fritzing -->
+
+
