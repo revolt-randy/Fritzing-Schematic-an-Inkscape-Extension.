@@ -1,6 +1,9 @@
 # Fritzing-Schematic-an-Inkscape-Extension.
 
-An Inkscape extension to help automate the creation of schematic symbols for use with Fritzing EDA software. 
+An Inkscape extension to help automate the creation of schematic symbols for use with Fritzing EDA software.  This extension will create a rectangular schematic symbol with user specified number of connectors per side of the symbol. Optionally, the schematic connector numbers and labels can be user defined. Once finished, the resulting .SVG will have the correct scale, and element hierarchy/attributes required for use in Fritzing.
+
+All connectors created by this extension will be correctly named ‘connectorXpin’, where ‘X’ is the schematic connector number – 1. So schematic pin #1 will be named ‘connector0pin’, and schematic pin #5 will be named ‘connector4pin’. Optionally created terminalId’s will follow the same naming convention and be named ‘connector0terminal’ and ‘connector4terminal’. 
+
 Requires Inkscape v1.0 or above.
 
 ## Installation:
