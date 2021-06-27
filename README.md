@@ -29,7 +29,9 @@ Connector Pin Number/Label options: This controls how the schematic pin numbers 
 - Generic pin labels creates a pin label of ‘pin’ + the pin number. (pin1, pin2, pin3, etc)
 - User Defined pin labels is for manually entering pin labels. This option will open additional UI windows for manually entering pin labels.
 
-Connector terminalIDs: Creates connector terminal points at the outer edge of each connector pin.
+#### Connector terminalIDs:
+- Creates connector terminal points at the outer edge of each connector pin.
+
 
 Clicking the ‘Apply’ button will start the extension. If a ‘user defined’ option was selected, additional windows will open for user input of values. When all user input is completed, the schematic symbol is created. From here, further user artwork can be created...
 
