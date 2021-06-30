@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-  fritzing-schematic.py v0.8 alpha
+  fritzing-schematic.py v0.9 beta
     -for Inkscape v1.0+
     -version history at end of code
 """
@@ -57,7 +57,7 @@ class FritzingSchematic(inkex.EffectExtension):
     # globals are frowned upon, but these were added in during dev work and just not removed,
     # they are used in very few places and could be hard coded instead
 
-
+    # user inputs - from fritzing-schematic.inx
     def add_arguments(self, pars):
         #inkex.Effect.__init__(self)
         
@@ -289,26 +289,8 @@ class FritzingSchematic(inkex.EffectExtension):
                 create_terminalID(self, group, connector_term_attrib[index])
 
 
-
-        ''' debug prints
-        #sys.stderr.write("\n***    fritzing-schematic: no errors    ***  \n")
-        
-        # debug output print to sys.stderr
-        sys.stderr.write ("\n schematic_pin_num dump: \n")
-        
-        for index in range(0, len(schematic_pin_num)):
-                sys.stderr.write ( str(schematic_pin_num[index]) + "\n")
-                
-        
-        # debug output print to sys.stderr
-        sys.stderr.write ("\n schematic_pin_label dump: \n")
-        
-        for index in range(0, len(schematic_pin_label)):
-                sys.stderr.write ( schematic_pin_label[index] + "\n" )
-                
-        '''
-        
         return          # exit extension
+
     # end of - def effect(self):
     
 # end of - class FritzingSchematic(inkex.EffectExtension):
@@ -331,12 +313,7 @@ def prep_doc(self, x_size, y_size, num_left_pins, num_bottom_pins, num_right_pin
 #
     
     svg = self.document.getroot()
-    
-    ''' debug prints
-    sys.stderr.write("\n x_size = " + str(x_size) + "\n")
-    sys.stderr.write(" y_size = " + str(y_size) + "\n\n")
-    '''
-    
+
     # calculate document width
     if num_left_pins > 0:           # check for left pins
         x_size = x_size + .105      # add to the value for space for left pins
@@ -1131,9 +1108,6 @@ def create_pin(self, group, pin_attribs):
     # returns:
     # nothing
     #
-        
-    #sys.stderr.write("\n create_pin function called\n")
-    #sys.stderr.write(str(pin_attribs) + "\n\n")
     
     newObj = etree.SubElement(group, inkex.addNS('line','svg'), pin_attribs )
     
@@ -1150,8 +1124,6 @@ def create_terminalID(self, group, term_attribs):
     # nothing
     #
     
-    #sys.stderr.write("\n create_terminalID function called\n")
-    
     newObj = etree.SubElement(group, inkex.addNS('rect','svg'), term_attribs )
     
     return
@@ -1159,7 +1131,9 @@ def create_terminalID(self, group, term_attribs):
 
 
 def user_pin_number_label(self, num_of_pins, connect_num, schematic_pin_num, schematic_pin_label, side):
-    # get user input for pin numbers on left side of symbol
+    # get user input for pin numbers/labels for side of schematic
+    # this function creates a window and awaits user input for pin numbers and/or labels
+    #
     # input:
     # num_of_pins - number of pins on left side of symbol
     # connect_num - connector number to start using
@@ -1307,7 +1281,7 @@ def user_pin_number_label(self, num_of_pins, connect_num, schematic_pin_num, sch
     # end scroll bar code
     
     
-    # define UI window    
+    # define UI window in UI_frame
     # display header text in input window
     a = tk.Label(UI_frame, text = side + " side schematic pin numbers/labels:")
     a.grid(row = 1, column = 0, columnspan = 3 )
@@ -1421,14 +1395,10 @@ def error_cleanup(self, group, org_doc_width, org_doc_height, org_doc_viewbox):
     
     group.delete()      # delete the group we started to create before error
     
-    # reload the default startup template
-    #self.document = load_svg(self.get_resource('../templates/default.svg'))
-    
-    # testing this code
-    svg.set('width', org_doc_width)       # set doc width
+    svg.set('width', org_doc_width)         # set doc width
     svg.set('height', org_doc_height )      # set doc height
     
-    svg.set('viewBox', org_doc_viewbox)
+    svg.set('viewBox', org_doc_viewbox)     # set doc viewbox
     ''' the idea here is to set the doc width, height, and viewbox
         back to the values they were before this script starts,
         since those are the only values prep_doc() changes
@@ -1543,6 +1513,8 @@ if __name__ == '__main__':  # pragma: no cover
 #   - code cleanup and improved error messages
 #   - set max symbol size to 6.5in, 64 connectors per side = 256 max connectors
 #
+# v0.9 beta - remove more dev code and publish to github
+#   - updated .inx file with github url
 
 
 

@@ -5,7 +5,7 @@
 	<_name>Fritzing-Schematic</_name>
 
 	<!-- id should be unique. Associates entered values with this menu -->
-	<id>githubacct.uniqueid-001.Name_test</id>
+	<id>https://github.com/revolt-randy/Fritzing-Schematic-an-Inkscape-Extension.</id>
 
 	<!-- mention a dependency here and will check for existence (optional)-->
 	<dependency type="executable" location="extensions">fritzing-schematic.py</dependency>
