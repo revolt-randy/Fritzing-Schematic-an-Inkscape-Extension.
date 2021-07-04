@@ -591,7 +591,7 @@ def create_bottom_pins(self, group, num_pins, width, height, x_offset, y_offset,
 
     # check for user input
     if ((self.options.pin_num == 1) or (self.options.pin_label == 1)):           # user defined pin numbers or labels
-        user_pin_number_label(self, num_pins, connect_num, schematic_pin_num, schematic_pin_label, "Left")
+        user_pin_number_label(self, num_pins, connect_num, schematic_pin_num, schematic_pin_label, "Bottom")
         #sys.stderr.write(" user_pin_number_label result = " + str(result) + "\n\n")
     
     if (self.options.pin_num == 1):                                 # user defined pin numbers
@@ -695,7 +695,7 @@ def create_right_pins(self, group, num_pins, width, height, x_offset, y_offset, 
     
     #
     if ((self.options.pin_num == 1) or (self.options.pin_label == 1)):           # user defined pin numbers or labels
-        result = user_pin_number_label(self, num_pins, connect_num, schematic_pin_num, schematic_pin_label, "Left")
+        result = user_pin_number_label(self, num_pins, connect_num, schematic_pin_num, schematic_pin_label, "Right")
         #sys.stderr.write(" user_pin_number_label result = " + str(result) + "\n\n")
     
     if (self.options.pin_num == 1):                                 # user defined pin numbers
@@ -804,7 +804,7 @@ def create_top_pins(self, group, num_pins, width, height, x_offset, y_offset, co
     
     #
     if ((self.options.pin_num == 1) or (self.options.pin_label == 1)):           # user defined pin numbers or labels
-        result = user_pin_number_label(self, num_pins, connect_num, schematic_pin_num, schematic_pin_label, "Left")
+        result = user_pin_number_label(self, num_pins, connect_num, schematic_pin_num, schematic_pin_label, "Top")
         #sys.stderr.write(" user_pin_number_label result = " + str(result) + "\n\n")
     
     if (self.options.pin_num == 1):                                 # user defined pin numbers
