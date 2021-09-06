@@ -1439,7 +1439,7 @@ def error_check_params(schematic_width, schematic_height, num_left_pins, num_bot
         # too many pins to fit along bottom of schematic
         # symbol with proper spacing - raise error
         sys.stderr.write("\n Too many connectors on bottom side of symbol\n\n")
-        ssys.stderr.write(" - A symbol width of " + str(schematic_width) + " inches can only have ")
+        sys.stderr.write(" - A symbol width of " + str(schematic_width) + " inches can only have ")
         sys.stderr.write(str(int(symbol_width - 1)) + " connectors\n    on the top and bottom sides.\n\n")
         sys.stderr.write(" extension failed!\n")
         return False
@@ -1448,7 +1448,7 @@ def error_check_params(schematic_width, schematic_height, num_left_pins, num_bot
         # too many pins to fit along right of schematic
         # symbol with proper spacing - raise error
         sys.stderr.write("\n Too many connectors on right side of symbol\n\n")
-        ssys.stderr.write(" - A symbol height of " + str(schematic_height) + " inches can only have ")
+        sys.stderr.write(" - A symbol height of " + str(schematic_height) + " inches can only have ")
         sys.stderr.write(str(int(symbol_height - 1)) + " connectors\n    on the left and right sides.\n\n")
         sys.stderr.write(" extension failed!\n")
         return False
@@ -1457,7 +1457,7 @@ def error_check_params(schematic_width, schematic_height, num_left_pins, num_bot
         # too many pins to fit along top of schematic
         # symbol with proper spacing - raise error
         sys.stderr.write("\n Too many connectors on top side of symbol\n\n")
-        ssys.stderr.write(" - A symbol width of " + str(schematic_width) + " inches can only have ")
+        sys.stderr.write(" - A symbol width of " + str(schematic_width) + " inches can only have ")
         sys.stderr.write(str(int(symbol_width - 1)) + " connectors\n    on the top and bottom sides.\n\n")
         sys.stderr.write(" extension failed!\n")
         return False        
