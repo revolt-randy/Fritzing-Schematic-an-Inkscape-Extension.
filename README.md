@@ -10,7 +10,7 @@ Requires Inkscape v1.2 or above.
 Look above for the green button labeled - 'Code'. Selecting that button will bring up a popup menu with an option - 'Download ZIP', selecting that option will start a download of a .zip file that contains all three files in this repository. 
 
 ## Installation:
-The .zip file will contain two files, ‘fritzing-schematic.inx’ and ‘fritzing-schematic.py’. These files need to be copied to Inkscape’s extensions directory. Please search how to install an Inkscape extension for your OS, it's a simple process. Alternatively, if you know where Inkscape's externsions directory is, you could un-zip all files to this directory.
+The .zip file will contain two files, ‘fritzing-schematic.inx’ and ‘fritzing-schematic.py’. These files need to be copied to Inkscape’s extensions directory. Please search how to install an Inkscape extension for your OS, it's a simple process. Alternatively, if you know where Inkscape's externsions directory is, you could un-zip all files to that directory.
 
 ## Usage:
 Create a new Inkscape document. The extension is launched from Inkscape ‘Extensions’ menu as ‘Fritzing’ → ‘Fritzing-Schematic…’. Upon launching the extension, you will be presented a new window with various user settings.
