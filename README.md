@@ -4,10 +4,13 @@ An Inkscape extension to help automate the creation of schematic symbols for use
 
 All connectors created will be correctly named ‘connectorXpin’, where ‘X’ is the schematic connector number – 1. So schematic pin #1 will be named ‘connector0pin’, and schematic pin #5 will be named ‘connector4pin’. Optionally created terminalId’s will follow the same naming convention and be named ‘connector0terminal’ and ‘connector4terminal’. 
 
-Requires Inkscape v1.0 or above.
+Requires Inkscape v1.2 or above.
+
+## Downloading:
+Look above for the green button labeled - 'Code'. Selecting that button will bring up a popup menu with an option - 'Download ZIP', selecting that option will start a download of a .zip file that contains all three files in this repository. 
 
 ## Installation:
-Copy the two files, ‘fritzing-schematic.inx’ and ‘fritzing-schematic.py’ to Inkscape’s extensions directory. Please search how to install an Inkscape extension for your OS, it's a simple process.
+The .zip file will contain two files, ‘fritzing-schematic.inx’ and ‘fritzing-schematic.py’. These files need to be copied to Inkscape’s extensions directory. Please search how to install an Inkscape extension for your OS, it's a simple process. Alternatively, if you know where Inkscape's externsions directory is, you could un-zip all files to this directory.
 
 ## Usage:
 Create a new Inkscape document. The extension is launched from Inkscape ‘Extensions’ menu as ‘Fritzing’ → ‘Fritzing-Schematic…’. Upon launching the extension, you will be presented a new window with various user settings.
