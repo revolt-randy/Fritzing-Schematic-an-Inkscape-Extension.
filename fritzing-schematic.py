@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
 """
-  fritzing-schematic.py v0.9 beta
-    -for Inkscape v1.0+
+  fritzing-schematic.py v1.0 
+  -for Inkscape v1.2+
     -version history at end of code
 """
 
 """
-Copyright (c) 2021 Randy Blose
+Copyright (c) 2024 Randy Blose
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1213,6 +1213,19 @@ def user_pin_number_label(self, num_of_pins, connect_num, schematic_pin_num, sch
         
         return
     # end of - def submit()
+ 
+    # mousewheel scroll - 
+    def on_mousewheel(event, scroll = None):
+    
+        if sys.platform == 'linux' or sys.platform == 'linux2':     # linux OS
+            root_canvas.yview_scroll(int(scroll), "units")
+        elif sys.platform == 'darwin':                              # mac OS
+            root_canvas.yview_scroll(int(-1 * event.delta), "units")
+        else:                                                       # assume win OS
+            root_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        #sys.stderr.write(" on_mousewheel \n\n")
+        return
+    #
     
     #
     # start of code defining input window
@@ -1273,6 +1286,15 @@ def user_pin_number_label(self, num_of_pins, connect_num, schematic_pin_num, sch
     root_canvas.configure(yscrollcommand = v_scrollbar.set)
     root_canvas.bind("<Configure>", lambda e: root_canvas.configure(scrollregion = root_canvas.bbox("all")))
 
+    # mousewheel scrollbar binding -
+    if sys.platform == 'linux' or sys.platform == 'linux2':     # linux OS - binding
+        canvas.bind_all("<Button-4>", fp(_on_mousewheel, scroll=-1))
+        canvas.bind_all("<Button-5>", fp(_on_mousewheel, scroll=1))
+    else:                                                       # win/mac OS - binding
+        root_canvas.bind_all("<MouseWheel>", on_mousewheel)
+    #sys.stderr.write(" bind mousewheel \n\n")
+    
+    
     # add another frame inside the canvas
     UI_frame = Frame(root_canvas)   # this is the frame that will hold all the input elements
     
@@ -1515,6 +1537,12 @@ if __name__ == '__main__':  # pragma: no cover
 #
 # v0.9 beta - remove more dev code and publish to github
 #   - updated .inx file with github url
+#
+# v1.0 - added in support for mouse scroll wheel
+#   - Schematic symbol pin numbers/labels input window now supports mouse scroll wheel
+#
+
+
 
 
 
